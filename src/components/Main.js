@@ -59,10 +59,10 @@ const Main = () => {
         </div>
       </main>
       <div className="mx-auto flex w-1/2 -translate-y-10 flex-wrap justify-center gap-2 border-amber-400 text-center text-6xl text-[#84c01a] xl:-translate-x-16">
-        <div className="h-3 w-3 cursor-pointer rounded-full bg-[#84c01a]"></div>
-        <div className="h-3 w-3 cursor-pointer rounded-full bg-gray-400"></div>
-        <div className="h-3 w-3 cursor-pointer rounded-full bg-gray-400"></div>
-        <div className="h-3 w-3 cursor-pointer rounded-full bg-gray-400"></div>
+        <div className={` ${ (imgIndex === 0) ? "bg-[#84c01a]" : "bg-gray-400"} h-3 w-3 cursor-pointer rounded-full `}></div>
+        <div className={` ${ (imgIndex === 1) ? "bg-[#84c01a]" : "bg-gray-400"} h-3 w-3 cursor-pointer rounded-full `}></div>
+        <div className={` ${ (imgIndex === 2) ? "bg-[#84c01a]" : "bg-gray-400"} h-3 w-3 cursor-pointer rounded-full `}></div>
+        <div className={` ${ (imgIndex === 3) ? "bg-[#84c01a]" : "bg-gray-400"} h-3 w-3 cursor-pointer rounded-full `}></div>
       </div>
     </>
   );
