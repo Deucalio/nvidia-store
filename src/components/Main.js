@@ -11,7 +11,6 @@ const Main = () => {
   const [imgIndex, setImgIndex] = useState(0);
   const [opacityExists, setOpacityExists] = useState(true);
 
-  //
   const handleOpacity = () => {
     setOpacityExists(false);
     setTimeout(() => {
@@ -20,11 +19,17 @@ const Main = () => {
   };
 
   // colors the selected dot green
-  const colorDot = (dot) => {};
+  const handleClick = (dot) => {
+    handleOpacity();
+    setTimeout(() => {
+      setImgIndex(Number(dot.id));
+    }, 1000);
+  };
 
   if (imgIndex === 4) {
     setImgIndex(0);
   }
+
   useEffect(() => {
     const changeImg = () => {
       handleOpacity();
@@ -32,7 +37,6 @@ const Main = () => {
         setImgIndex((i) => i + 1);
       }, 1000);
     };
-
     const timeOut = setTimeout(changeImg, 10000);
 
     return () => {
@@ -59,10 +63,34 @@ const Main = () => {
         </div>
       </main>
       <div className="mx-auto flex w-1/2 -translate-y-10 flex-wrap justify-center gap-2 border-amber-400 text-center text-6xl text-[#84c01a] xl:-translate-x-16">
-        <div className={` ${ (imgIndex === 0) ? "bg-[#84c01a]" : "bg-gray-400"} h-3 w-3 cursor-pointer rounded-full `}></div>
-        <div className={` ${ (imgIndex === 1) ? "bg-[#84c01a]" : "bg-gray-400"} h-3 w-3 cursor-pointer rounded-full `}></div>
-        <div className={` ${ (imgIndex === 2) ? "bg-[#84c01a]" : "bg-gray-400"} h-3 w-3 cursor-pointer rounded-full `}></div>
-        <div className={` ${ (imgIndex === 3) ? "bg-[#84c01a]" : "bg-gray-400"} h-3 w-3 cursor-pointer rounded-full `}></div>
+        <div
+          id="0"
+          onClick={(e) => handleClick(e.target)}
+          className={`${opacityExists ? "" : "pointer-events-none"} ${
+            imgIndex === 0 ? "bg-[#84c01a]" : "bg-gray-400"
+          } h-3 w-3 cursor-pointer rounded-full `}
+        ></div>
+        <div
+          id="1"
+          onClick={(e) => handleClick(e.target)}
+          className={`${opacityExists ? "" : "pointer-events-none"} ${
+            imgIndex === 1 ? "bg-[#84c01a]" : "bg-gray-400"
+          } h-3 w-3 cursor-pointer rounded-full `}
+        ></div>
+        <div
+          id="2"
+          onClick={(e) => handleClick(e.target)}
+          className={`${opacityExists ? "" : "pointer-events-none"} ${
+            imgIndex === 2 ? "bg-[#84c01a]" : "bg-gray-400"
+          } h-3 w-3 cursor-pointer rounded-full `}
+        ></div>
+        <div
+          id="3"
+          onClick={(e) => handleClick(e.target)}
+          className={`${opacityExists ? "" : "pointer-events-none"} ${
+            imgIndex === 3 ? "bg-[#84c01a]" : "bg-gray-400"
+          } h-3 w-3 cursor-pointer rounded-full `}
+        ></div>
       </div>
     </>
   );
