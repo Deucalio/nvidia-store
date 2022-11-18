@@ -1,3 +1,10 @@
+const IMAGES = [
+  "https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc3/csm_geforce_rtx_4080_product_photo_001_7_a4f5f5ba77.jpg",
+  "https://i.imgur.com/7yxnKIp.png",
+  "https://i.imgur.com/GDdCkVj.png",
+  "https://i.imgur.com/gWb1XDC.png",
+];
+
 const App = () => {
   return (
     <>
