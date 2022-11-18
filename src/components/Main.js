@@ -9,6 +9,15 @@ const IMAGES = [
 
 const Main = () => {
   const [imgIndex, setImgIndex] = useState(0);
+  const [opacityExists, setOpacityExists] = useState(true);
+
+  //
+  const handleOpacity = () => {
+    setOpacityExists(false);
+    setTimeout(() => {
+      setOpacityExists(true);
+    }, 1500);
+  };
 
   // colors the selected dot green
   const colorDot = (dot) => {};
@@ -18,7 +27,10 @@ const Main = () => {
   }
   useEffect(() => {
     const changeImg = () => {
-      setImgIndex((i) => i + 1);
+      handleOpacity();
+      setTimeout(() => {
+        setImgIndex((i) => i + 1);
+      }, 1000);
     };
 
     const timeOut = setTimeout(changeImg, 10000);
@@ -32,7 +44,9 @@ const Main = () => {
     <>
       <main
         style={{ backgroundImage: `url(${IMAGES[imgIndex]})` }}
-        className={`duration-1000 transition-[opacity] opacity-${0} flex flex-col justify-center border-sky-400 bg-cover bg-center px-4 md:px-24 lg:bg-contain lg:bg-right-bottom lg:bg-no-repeat`}
+        className={`transition-[opacity] duration-1000 opacity-${
+          opacityExists ? "1" : "0"
+        } flex flex-col justify-center border-sky-400 bg-cover bg-center px-4 md:px-24 lg:bg-contain lg:bg-right-bottom lg:bg-no-repeat`}
       >
         <div className="flex flex-col gap-5 w-48 md:w-2/5 lg:w-1/3 text-3xl border-red-500 font-bold text-white sm:-translate-y-11  leading-tight">
           <p className=" lg:text-5xl">
