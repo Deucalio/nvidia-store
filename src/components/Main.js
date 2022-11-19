@@ -49,7 +49,7 @@ const Main = () => {
 
   // colors the selected dot green
   const handleClick = (dot) => {
-    handleOpacity();
+    handleOpacity(); 
     setTimeout(() => {
       setCurrentIndex(Number(dot.id));
     }, 1000);
@@ -58,12 +58,12 @@ const Main = () => {
   // changes content of page after 10 second
   useEffect(() => {
     const changeImg = () => {
-      handleOpacity();
+      handleOpacity(); 
       setTimeout(() => {
         setCurrentIndex((i) => (i + 1) % 4);
       }, 1000);
     };
-    const timeOut = setTimeout(changeImg, 10000);
+    const timeOut = setTimeout(changeImg, 7000);
 
     return () => {
       clearInterval(timeOut);
@@ -74,8 +74,7 @@ const Main = () => {
     <>
       <main
         style={{ backgroundImage: `url(${CONTENT[currentIndex].imgURL})` }}
-        className={`transition-[opacity] duration-1000 opacity-${
-          opacityExists ? "1" : "0"
+        className={`opacity-${opacityExists ? "1" : "0"} transition-[opacity] duration-1000 
         } flex flex-col justify-center border-sky-400 bg-cover bg-center px-4 md:px-24 lg:bg-contain lg:bg-right-bottom lg:bg-no-repeat`}
       >
         <div className="flex flex-col gap-5 w-48 md:w-2/5 lg:w-1/3 text-3xl border-red-500 font-bold text-white sm:-translate-y-11  leading-tight">
