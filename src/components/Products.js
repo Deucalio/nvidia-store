@@ -5,8 +5,10 @@ const Products = () => {
   return (
     <>
       <Nav />
-      <main class="grid h-fit grid-cols-4 gap-7 border-4 border-sky-400 p-2 md:w-10/12 md:mx-auto">
-        <div class="col-span-4 flex h-fit flex-col gap-8 px-2">
+      <main class="grid h-fit grid-cols-4 gap-7  border-sky-400 p-2 md:mx-auto md:w-10/12 lg:w-8/12 xl:grid-cols-8 xl:w-11/12">
+        <div class="col-span-2 row-span-4 hidden xl:block border-r-[#666] border-r-[1px] mt-28"></div>
+
+        <div class="col-span-4 flex h-fit flex-col gap-8  border-amber-500 px-2 xl:col-span-6">
           <p class="w-2/3 px-2 text-3xl leading-snug tracking-tighter text-slate-100">
             Shop GeForce Graphics Cards, Laptops, and Systems
           </p>
@@ -52,24 +54,26 @@ const Products = () => {
           </div>
         </div>
 
-        <section class="col-span-4 mx-auto flex h-full max-w-5xl md: flex-col gap-8 border-rose-500 border-opacity-60 p-1">
+        <div class="col-span-4 mx-auto flex h-full max-w-5xl flex-col gap-8  border-rose-500 border-opacity-60 p-1 md:w-full xl:col-span-6 xl:px-28">
           <p class="mb-6 -translate-x-3 text-2xl tracking-tighter text-white">
             X results found
           </p>
-          <div class="featured flex h-fit flex-col border-2 border-[#666] bg-[#1a1a1a] p-2">
-            <p class="ml-2 text-xl tracking-tight text-white">Featured</p>
+          <div class="featured flex h-fit flex-col border-2 border-[#666] bg-[#1a1a1a] p-2 md:items-center">
+            <p class="ml-2 text-xl tracking-tight text-white ">Featured</p>
             <img
-              class="bg-cover"
+              class="w-80 bg-cover md:h-52"
               src="https://assets.nvidia.partners/images/png/nvidia-geforce-rtx-3090-ti.png"
               alt=""
             />
 
-            <div class="mx-auto flex w-11/12 flex-col">
-              <p class="text-lg text-white">NVIDIA GeForce RTX 3090 Ti</p>
-              <p class="text-lg text-[#76b900]">
+            <div class="mx-auto flex w-11/12 flex-col md:items-center">
+              <p class="text-lg text-white lg:text-2xl">
+                NVIDIA GeForce RTX 3090 Ti
+              </p>
+              <p class="text-lg text-[#76b900] lg:text-xl">
                 Promotional Price, Limited time only
               </p>
-              <div class="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white">
+              <div class="lg:text-lg mt-4 ml-4 flex flex-wrap items-center gap-2 text-white md:ml-20 md:w-72">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -84,9 +88,9 @@ const Products = () => {
                     d="M8.25 4.5l7.5 7.5-7.5 7.5"
                   />
                 </svg>
-                <p class="text-md">Cooling System: Fan</p>
+                <p>Cooling System: Fan</p>
               </div>
-              <div class="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white">
+              <div class="lg:text-lg mt-4 ml-4 flex flex-wrap items-center gap-2 text-white md:ml-20 md:w-72">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -103,7 +107,7 @@ const Products = () => {
                 </svg>
                 <p>Boost Clock Speed: 1.86 GHz</p>
               </div>
-              <div class="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white">
+              <div class="lg:text-lg mt-4 ml-4 flex flex-wrap items-center gap-2 text-white md:ml-20 md:w-72">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -128,217 +132,217 @@ const Products = () => {
               </button>
             </div>
           </div>
+        </div>
 
-          <div class="flex h-fit flex-col p-2">
-            <p class="ml-2 text-xl tracking-tight text-white">Featured</p>
-            <img
-              class="bg-cover"
-              src="https://assets.nvidia.partners/images/png/GeForce-RTX4080-Back.png"
-              alt=""
-            />
+        <div class="flex h-fit flex-col p-2 col-span-4 md:col-span-2 sm:items-center">
+          <p class="ml-2 text-xl tracking-tight text-white">Featured</p>
+          <img
+            class="w-80 bg-cover md:h-52"
+            src="https://assets.nvidia.partners/images/png/GeForce-RTX4080-Back.png"
+            alt=""
+          />
 
-            <div class="mx-auto flex w-11/12 flex-col">
-              <p class="text-lg text-white">NVIDIA GeForce RTX 4080</p>
-              <div class="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="h-6 w-6 text-[#76b900]"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                  />
-                </svg>
-                <p class="text-md">Cooling System: Fan</p>
-              </div>
-              <div class="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="h-6 w-6 text-[#76b900]"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                  />
-                </svg>
-                <p>Boost Clock Speed: 2.51 GHz</p>
-              </div>
-              <div class="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="h-6 w-6 text-[#76b900]"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                  />
-                </svg>
-                <p>GPU Memory Size: 16 GB</p>
-              </div>
-              <p class="mt-4 text-lg font-bold text-white">
-                $1,199.<sup>99</sup>
-              </p>
-              <button class="my-4 w-fit rounded-sm bg-[#76b900] p-3 text-xl text-white transition-all hover:bg-[#84c01a]">
-                Add to Cart
-              </button>
+          <div class="mx-auto flex w-11/12 flex-col  sm:items-center sm:w-2/3 ">
+            <p class="text-lg text-white lg:text-xl">NVIDIA GeForce RTX 4080</p>
+            <div class="lg:text-lg mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-6 w-6 text-[#76b900]"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                />
+              </svg>
+              <p class="text-md">Cooling System: Fan</p>
             </div>
-          </div>
-
-          <div class="flex h-fit flex-col p-2">
-            <p class="ml-2 text-xl tracking-tight text-white">Featured</p>
-            <img
-              class="bg-cover"
-              src="https://assets.nvidia.partners/images/png/GeForce-RTX4090-Back.png"
-              alt=""
-            />
-
-            <div class="mx-auto flex w-11/12 flex-col">
-              <p class="text-lg text-white">NVIDIA GeForce RTX 4090</p>
-              <div class="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="h-6 w-6 text-[#76b900]"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                  />
-                </svg>
-                <p class="text-md">Cooling System: Fan</p>
-              </div>
-              <div class="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="h-6 w-6 text-[#76b900]"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                  />
-                </svg>
-                <p>Boost Clock Speed: 2.52 GHz</p>
-              </div>
-              <div class="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="h-6 w-6 text-[#76b900]"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                  />
-                </svg>
-                <p>GPU Memory Size: 24 GB</p>
-              </div>
-              <p class="mt-4 text-lg font-bold text-white">
-                $1,599.<sup>99</sup>
-              </p>
-              <button class="my-4 w-fit rounded-sm bg-[#1a1a1a] p-3 text-xl text-white transition-all hover:bg-[#84c01a] pointer-events-none">
-                Out of Stock
-              </button>
+            <div class="lg:text-lg mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-6 w-6 text-[#76b900]"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                />
+              </svg>
+              <p>Boost Clock Speed: 2.51 GHz</p>
             </div>
-          </div>
-
-          <div class="flex h-fit flex-col p-2">
-            <p class="ml-2 text-xl tracking-tight text-white">Featured</p>
-            <img
-              class="bg-cover"
-              src="https://assets.nvidia.partners/images/png/nvidia-geforce-rtx-3080.png"
-              alt=""
-            />
-
-            <div class="mx-auto flex w-11/12 flex-col">
-              <p class="text-lg text-white">NVIDIA GeForce RTX 3080</p>
-              <div class="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="h-6 w-6 text-[#76b900]"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                  />
-                </svg>
-                <p class="text-md">Cooling System: Fan</p>
-              </div>
-              <div class="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="h-6 w-6 text-[#76b900]"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                  />
-                </svg>
-                <p>Boost Clock Speed: 1.71 GHz</p>
-              </div>
-              <div class="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="h-6 w-6 text-[#76b900]"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                  />
-                </svg>
-                <p>GPU Memory Size: 10 GB</p>
-              </div>
-              <p class="mt-4 text-lg font-bold text-white">
-                $699.<sup>99</sup>
-              </p>
-              <button class="my-4 w-fit rounded-sm bg-[#1a1a1a] p-3 text-xl text-white transition-all hover:bg-[#84c01a] pointer-events-none">
-                Out of Stock
-              </button>
+            <div class="lg:text-lg mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-6 w-6 text-[#76b900]"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                />
+              </svg>
+              <p>GPU Memory Size: 16 GB</p>
             </div>
+            <p class="mt-4 text-lg font-bold text-white">
+              $1,199.<sup>99</sup>
+            </p>
+            <button class="my-4 w-fit rounded-sm bg-[#76b900] p-3 text-xl text-white transition-all hover:bg-[#84c01a]">
+              Add to Cart
+            </button>
           </div>
-        </section>
+        </div>
+
+        <div class="flex h-fit flex-col p-2 col-span-4 md:col-span-2 sm:items-center">
+          <p class="ml-2 text-xl tracking-tight text-white">Featured</p>
+          <img
+            class="w-80 bg-cover md:h-52"
+            src="https://assets.nvidia.partners/images/png/GeForce-RTX4090-Back.png"
+            alt=""
+          />
+
+          <div class="mx-auto flex w-11/12 flex-col  sm:items-center sm:w-2/3 ">
+            <p class="text-lg text-white lg:text-xl">NVIDIA GeForce RTX 4090</p>
+            <div class="lg:text-lg mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-6 w-6 text-[#76b900]"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                />
+              </svg>
+              <p class="text-md">Cooling System: Fan</p>
+            </div>
+            <div class="lg:text-lg mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-6 w-6 text-[#76b900]"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                />
+              </svg>
+              <p>Boost Clock Speed: 2.52 GHz</p>
+            </div>
+            <div class="lg:text-lg mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-6 w-6 text-[#76b900]"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                />
+              </svg>
+              <p>GPU Memory Size: 24 GB</p>
+            </div>
+            <p class="mt-4 text-lg font-bold text-white">
+              $1,599.<sup>99</sup>
+            </p>
+            <button class="pointer-events-none my-4 w-fit rounded-sm bg-[#1a1a1a] p-3 text-xl text-white transition-all hover:bg-[#84c01a]">
+              Out of Stock
+            </button>
+          </div>
+        </div>
+
+        <div class="flex h-fit flex-col p-2 col-span-4 md:col-span-2 sm:items-center">
+          <p class="ml-2 text-xl tracking-tight text-white">Featured</p>
+          <img
+            class="w-80 bg-cover md:h-52"
+            src="https://assets.nvidia.partners/images/png/nvidia-geforce-rtx-3080.png"
+            alt=""
+          />
+
+          <div class="mx-auto flex w-11/12 flex-col  sm:items-center sm:w-2/3 ">
+            <p class="text-lg text-white lg:text-xl">NVIDIA GeForce RTX 3080</p>
+            <div class="lg:text-lg mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-6 w-6 text-[#76b900]"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                />
+              </svg>
+              <p class="text-md">Cooling System: Fan</p>
+            </div>
+            <div class="lg:text-lg mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-6 w-6 text-[#76b900]"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                />
+              </svg>
+              <p>Boost Clock Speed: 1.71 GHz</p>
+            </div>
+            <div class="lg:text-lg mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-6 w-6 text-[#76b900]"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                />
+              </svg>
+              <p>GPU Memory Size: 10 GB</p>
+            </div>
+            <p class="mt-4 text-lg font-bold text-white">
+              $699.<sup>99</sup>
+            </p>
+            <button class="pointer-events-none my-4 w-fit rounded-sm bg-[#1a1a1a] p-3 text-xl text-white transition-all hover:bg-[#84c01a]">
+              Out of Stock
+            </button>
+          </div>
+        </div>
       </main>
     </>
   );
