@@ -77,8 +77,7 @@ const Main = () => {
           backgroundImage: `url(${CONTENT[currentIndex].imgURL})`,
           opacity: `${opacityExists ? "1" : "0"}`,
         }}
-        className={` transition-all duration-1000 
-        } flex flex-col justify-center border-sky-400 bg-cover bg-center px-4 md:px-24 lg:bg-contain lg:bg-right-bottom lg:bg-no-repeat`}
+        className={`home transition-all duration-1000 flex flex-col justify-center border-sky-400 bg-cover bg-center px-4 md:px-24 lg:bg-contain lg:bg-right-bottom lg:bg-no-repeat`}
       >
         <div className="flex flex-col gap-5 w-48 md:w-2/5 lg:w-1/3 text-3xl border-red-500 font-bold text-white sm:-translate-y-11  leading-tight">
           <p className=" lg:text-5xl">

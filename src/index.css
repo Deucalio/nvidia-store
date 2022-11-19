@@ -1,20 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Roboto+Condensed:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&family=Roboto+Condensed:wght@400;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-@layer base{
-    html{
-      width: 100%;
-      overflow-y: hidden;
-    }
-    body{
-      background-color: black;
-     font-family: 'Roboto Condensed', sans-serif;
-    }
-    main{
-      height: calc(100vh - 4rem);
-    }
+@layer base {
+  body {
+    background-color: black;
+    font-family: "Roboto Condensed", sans-serif;
   }
+  main.home {
+    height: calc(100vh - 4.5rem);
+  }
+}
