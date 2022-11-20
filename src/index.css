@@ -13,3 +13,6 @@
     height: calc(100vh - 4.5rem);
   }
 }
+
+/* sidebar grid row: span 
+2 + Math.ceil((products.length / 3)) / Math.ceil(products.length / 3)  */
