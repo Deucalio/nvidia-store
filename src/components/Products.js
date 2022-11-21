@@ -1,6 +1,5 @@
 import React from "react";
 import Nav from "./Nav";
-import { useState } from "react";
 
 const Products = () => {
   return (
@@ -20,7 +19,10 @@ const Products = () => {
                 name="filter1"
                 value="GraphicsCards"
               />
-              <label className=" cursor-pointer ml-2" htmlFor="filter_category_1">
+              <label
+                className=" cursor-pointer ml-2"
+                htmlFor="filter_category_1"
+              >
                 {" "}
                 htmlFraphics Cards
               </label>
@@ -33,7 +35,10 @@ const Products = () => {
                 name="filter2"
                 value="GamingLaptops"
               />
-              <label className=" cursor-pointer ml-2" htmlFor="filter_category_2">
+              <label
+                className=" cursor-pointer ml-2"
+                htmlFor="filter_category_2"
+              >
                 {" "}
                 htmlFaming Laptops
               </label>
@@ -46,7 +51,10 @@ const Products = () => {
                 name="filter3"
                 value="GamingMice"
               />
-              <label className=" cursor-pointer ml-2" htmlFor="filter_category_3">
+              <label
+                className=" cursor-pointer ml-2"
+                htmlFor="filter_category_3"
+              >
                 {" "}
                 htmlFaming Mice
               </label>
