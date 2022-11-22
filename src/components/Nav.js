@@ -39,12 +39,11 @@ const AddProductInCart = ({ name, price }) => {
 
 const Nav = ({ cartItems }) => {
   const [overlayActive, setOverlayActive] = useState(false);
-  const [cartProducts, setCartProducts] = useState([])
+  const [cartProducts, setCartProducts] = useState([]);
 
   useEffect(() => {
-    cartItems.length !== 0 ? setCartProducts(cartItems) : setCartProducts([])
-  }, [cartItems])
-
+    cartItems.length !== 0 ? setCartProducts(cartItems) : setCartProducts([]);
+  }, [cartItems]);
 
   if (overlayActive) {
     document.body.classList.add("overflow-hidden");
@@ -75,7 +74,10 @@ const Nav = ({ cartItems }) => {
             </li>
           </NavLink>
           <li onClick={toggleOverlay} className="mt-2 flex flex-wrap relative">
-            <button className="h-w-7 w-7 bg-transparent text-slate-200 before:content-['0']  before:-ml-1 before:text-gray-50 before:absolute before:-top-4 before:text-lg  after:content-['box'] after:w-6 after:h-5 after:rounded-full after:absolute after:-top-3 after:left-2 before:z-10  after:bg-[#76b900] after:text-transparent">
+            <button id="cart"
+              dataNum={String(cartProducts.length)}
+              className={`h-w-7 w-7 bg-transparent text-slate-200 before:absolute before:-top-4 before:z-10 before:-ml-1 before:text-lg before:text-gray-50 after:absolute after:-top-3 after:left-2 after:h-5 after:w-6 after:rounded-full after:bg-[#76b900] after:text-transparent after:content-['box']`}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

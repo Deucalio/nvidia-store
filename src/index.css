@@ -12,6 +12,9 @@
   main.home {
     height: calc(100vh - 4.5rem);
   }
+  #cart::before{
+    content: attr(datanum)
+  }
 }
 
 /* sidebar grid row: span 
