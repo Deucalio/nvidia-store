@@ -10,6 +10,8 @@ const App = ({ PRODUCTS }) => {
     console.log(cartItems);
   }, [cartItems]);
 
+
+
   const getPrice = (item) => {
     // special case for featured item
     if (item[0].textContent.includes("Ti")) {
@@ -36,7 +38,11 @@ const App = ({ PRODUCTS }) => {
       setCartItems([
         ...cartItems.map((product, i) => {
           if (i === duplicateNameIndex) {
-            return { name, price, quantity: product.quantity + 1 };
+            return {
+              name,
+              price,
+              quantity: product.quantity + 1,
+            };
           } else {
             return product;
           }

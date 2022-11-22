@@ -3,6 +3,16 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
 const AddProductInCart = ({ removeCartItem, quantity, name, price }) => {
+  const calculatePrice = (price, quantity) => {
+    const num = (
+      Number(price.substr(1).split(",").join("")) * Number(quantity)
+    ).toFixed(2);
+    return (
+      "$" + num[0] + "," + num.split(".")[0].substr(1) + "." + num.split(".")[1]
+    );
+  };
+  const priceTimesQuantity = calculatePrice(price,quantity);
+
   return (
     <div className="grid h-fit grid-cols-4 gap-y-6 border-b-2 border-[#666]/25 sm:px-6">
       <div className="mt-3 flex flex-wrap gap-2">
@@ -36,7 +46,8 @@ const AddProductInCart = ({ removeCartItem, quantity, name, price }) => {
       </div>
 
       <p className="col-start-4 -ml-8 text-2xl text-black">
-        {price.split(".")[0]} <sup>{price.split(".")[1]}</sup>
+        {priceTimesQuantity.split(".")[0]}{" "}
+        <sup>{priceTimesQuantity.split(".")[1]}</sup>
       </p>
     </div>
   );
@@ -81,9 +92,12 @@ const Nav = ({ removeCartItem, cartItems }) => {
           <li onClick={toggleOverlay} className="mt-2 flex flex-wrap relative">
             <button
               id="cart"
-              datanum={String(cartProducts.reduce(
-                (acc, currentVal) => acc + currentVal.quantity,
-                0))}
+              datanum={String(
+                cartProducts.reduce(
+                  (acc, currentVal) => acc + currentVal.quantity,
+                  0
+                )
+              )}
               className={`h-w-7 w-7 bg-transparent text-slate-200 before:absolute before:-top-4 before:z-10 before:-ml-1 before:text-lg before:text-gray-50 after:absolute after:-top-3 after:left-2 after:h-5 after:w-6 after:rounded-full after:bg-[#76b900] after:text-transparent after:content-['box']`}
             >
               <svg
@@ -128,7 +142,7 @@ const Nav = ({ removeCartItem, cartItems }) => {
                   removeCartItem={removeCartItem}
                   name={item.name}
                   price={item.price}
-                  quantity = {item.quantity}
+                  quantity={item.quantity}
                 />
               ))
             : ""}
