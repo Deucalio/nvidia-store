@@ -1,10 +1,50 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import Overlay from "./Overlay";
 import { useState } from "react";
 
-const Nav = () => {
+const AddProductInCart = ({ name, price }) => {
+  return (
+    <div className="grid h-fit grid-cols-4 gap-y-6 border-b-2 border-[#666]/25 sm:px-6">
+      <div className="mt-3 flex flex-wrap gap-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 -rotate-90 cursor-pointer opacity-75"
+          viewBox="0 0 24 24"
+        >
+          <path d="M24 22h-24l12-20z" />
+        </svg>
+        <p className="-mt-1 text-xl">1</p>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 rotate-90 cursor-pointer opacity-75"
+          viewBox="0 0 24 24"
+        >
+          <path d="M24 22h-24l12-20z" />
+        </svg>
+      </div>
+
+      <div className="col-span-3">
+        <p className="relative text-xl  tracking-tighter text-black opacity-90">
+          {name}
+        </p>
+        <p className="cursor-pointer text-lg text-[#76b900]">Remove</p>
+      </div>
+
+      <p className="col-start-4 -ml-8 text-2xl text-black">
+        {price.split(".")[0]} <sup>{price.split(".")[1]}</sup>
+      </p>
+    </div>
+  );
+};
+
+const Nav = ({ cartItems }) => {
   const [overlayActive, setOverlayActive] = useState(false);
+  const [cartProducts, setCartProducts] = useState([])
+
+  useEffect(() => {
+    cartItems.length !== 0 ? setCartProducts(cartItems) : setCartProducts([])
+  }, [cartItems])
+
 
   if (overlayActive) {
     document.body.classList.add("overflow-hidden");
@@ -72,37 +112,13 @@ const Nav = () => {
         </div>
 
         <div className="flex h-96 flex-col gap-5 border-amber-600 caret-slate-700 sm:overflow-y-auto">
-          <div className="grid h-fit grid-cols-4 gap-y-6 border-b-2 border-[#666]/25 sm:px-6">
-            <div className="mt-3 flex flex-wrap gap-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 -rotate-90 cursor-pointer opacity-75"
-                viewBox="0 0 24 24"
-              >
-                <path d="M24 22h-24l12-20z" />
-              </svg>
-              <p className="-mt-1 text-xl">5</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 rotate-90 cursor-pointer opacity-75"
-                viewBox="0 0 24 24"
-              >
-                <path d="M24 22h-24l12-20z" />
-              </svg>
-            </div>
+          {cartProducts.length !== 0
+            ? cartProducts.map((item) => (
+                <AddProductInCart name={item.name} price={item.price} />
+              ))
+            : ""}
 
-            <div className="col-span-3">
-              <p className="relative text-xl  tracking-tighter text-black opacity-90">
-                NVIDIA GeForce RTX 3090 Ti
-              </p>
-              <p className="cursor-pointer text-lg text-[#76b900]">Remove</p>
-            </div>
-
-            <p className="col-start-4 -ml-8 text-2xl text-black">
-              $5499.<sup>99</sup>
-            </p>
-          </div>
-          <div className="py-6 pb-16  flex flex-col items-center ">
+          <div className={`py-6 pb-16  flex flex-col items-center  `}>
             <p className="text-right text-3xl self-end md:px-16 sm:px-32">
               $11,999.<sup>99</sup>
             </p>

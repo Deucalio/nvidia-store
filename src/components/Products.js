@@ -1,94 +1,90 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Nav from "./Nav";
+import { useState } from "react";
 
-const PRODUCTS = [
-  {
-    imgLink: "",
-    name: "",
-    description: { para1: "", para2: "", para3: "", para4: "", para5: "" },
-    price: "",
-    button: "",
-  },
-];
+const Product = ({ imgLink, name, description, price, button, addCartItem }) => {
+  return (
+    <div className="col-span-4 flex h-fit flex-col p-2 transition-all duration-1000 sm:items-center md:col-span-2 xl:hover:ring-1 xl:hover:ring-[#666]">
+      <p className="ml-2 text-xl tracking-tight text-white">Featured</p>
+      <img className="w-80 bg-cover md:h-52" src={imgLink} alt="" />
 
-const Product = () => {
-  <div className="col-span-4 flex h-fit flex-col p-2 transition-all duration-1000 sm:items-center md:col-span-2 xl:hover:ring-1 xl:hover:ring-[#666]">
-    <p className="ml-2 text-xl tracking-tight text-white">Featured</p>
-    <img
-      className="w-80 bg-cover md:h-52"
-      src="https://assets.nvidia.partners/images/png/GeForce-RTX4080-Back.png"
-      alt=""
-    />
-
-    <div className="mx-auto flex w-11/12 flex-col sm:w-2/3 sm:items-center">
-      <p className="text-lg text-white lg:text-xl xl:ml-8 xl:w-52">
-        NVIDIA GeForce RTX 4080
-      </p>
-      <div className="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="currentColor"
-          className="h-6 w-6 text-[#76b900]"
+      <div className="mx-auto flex w-11/12 flex-col sm:w-2/3 sm:items-center">
+        <p className="text-lg text-white lg:text-xl xl:ml-8 xl:w-52">{name}</p>
+        <div className="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            className="h-6 w-6 text-[#76b900]"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M8.25 4.5l7.5 7.5-7.5 7.5"
+            />
+          </svg>
+          <p className="text-md">{description.para1}</p>
+        </div>
+        <div className="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            className="h-6 w-6 text-[#76b900]"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M8.25 4.5l7.5 7.5-7.5 7.5"
+            />
+          </svg>
+          <p>{description.para2}</p>
+        </div>
+        <div className="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            className="h-6 w-6 text-[#76b900]"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M8.25 4.5l7.5 7.5-7.5 7.5"
+            />
+          </svg>
+          <p>{description.para3}</p>
+        </div>
+        <p className="mt-4 text-lg font-bold text-white">
+          {price.split(".")[0]}.<sup>{price.split(".")[1]}</sup>
+        </p>
+        <button
+          onClick={addCartItem}
+          className={`my-4 w-fit rounded-sm ${
+            !button.includes("Out")
+              ? "bg-[#76b900]"
+              : ["bg-[#1a1a1a]", "pointer-events-none"].join(" ")
+          } p-3 text-xl text-white transition-all duration-700`}
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M8.25 4.5l7.5 7.5-7.5 7.5"
-          />
-        </svg>
-        <p className="text-md">Cooling System: Fan</p>
+          {button}
+        </button>
       </div>
-      <div className="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="currentColor"
-          className="h-6 w-6 text-[#76b900]"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M8.25 4.5l7.5 7.5-7.5 7.5"
-          />
-        </svg>
-        <p>Boost Clock Speed: 2.51 GHz</p>
-      </div>
-      <div className="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="currentColor"
-          className="h-6 w-6 text-[#76b900]"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M8.25 4.5l7.5 7.5-7.5 7.5"
-          />
-        </svg>
-        <p>GPU Memory Size: 16 GB</p>
-      </div>
-      <p className="mt-4 text-lg font-bold text-white">
-        $1,199.<sup>99</sup>
-      </p>
-      <button className="my-4 w-fit rounded-sm bg-[#76b900] p-3 text-xl text-white transition-all duration-700 hover:bg-[#84c01a]">
-        Add to Cart
-      </button>
     </div>
-  </div>;
+  );
 };
 
-const Products = () => {
+const Products = ({ cartItems, addCartItem, PRODUCTS }) => {
+
+
   return (
     <>
-      <Nav />
+      <Nav cartItems={cartItems} addCartItem={addCartItem} />
       <main className="grid h-fit grid-cols-4 gap-7 border-sky-400 p-2 md:mx-auto md:w-10/12 lg:w-8/12 xl:w-11/12 xl:grid-cols-8">
         <aside className="col-span-2 row-span-3 mt-28 hidden border-r-[1px] border-r-[#666] xl:block">
           <p className="w-56 -translate-x-3 border-b-2 border-[#666] xl:text-xl 2xl:text-2xl text-slate-100">
@@ -265,156 +261,24 @@ const Products = () => {
               <p className="mt-4 text-lg font-bold text-white xl:ml-auto xl:mr-16 xl:-mt-48">
                 $1,099.<sup>99</sup>
               </p>
-              <button className="my-4 w-fit rounded-sm bg-[#76b900] p-3 text-xl text-white transition-all hover:bg-[#84c01a] xl:ml-auto xl:mr-16 xl:translate-y-4">
+              <button onClick={addCartItem} className="my-4 w-fit rounded-sm bg-[#76b900] p-3 text-xl text-white transition-all hover:bg-[#84c01a] xl:ml-auto xl:mr-16 xl:translate-y-4">
                 Add to Cart
               </button>
             </div>
           </div>
         </div>
 
-        <div className="col-span-4 flex h-fit flex-col p-2 transition-all duration-1000 sm:items-center md:col-span-2 xl:hover:ring-1 xl:hover:ring-[#666]">
-          <p className="ml-2 text-xl tracking-tight text-white">Featured</p>
-          <img
-            className="w-80 bg-cover md:h-52"
-            src="https://assets.nvidia.partners/images/png/GeForce-RTX4090-Back.png"
-            alt=""
+        {PRODUCTS.map((p) => (
+          <Product
+            addCartItem={addCartItem}
+            key={p.name}
+            imgLink={p.imgLink}
+            name={p.name}
+            description={p.description}
+            price={p.price}
+            button={p.button}
           />
-
-          <div className="mx-auto flex w-11/12 flex-col sm:w-2/3 sm:items-center">
-            <p className="text-lg text-white lg:text-xl xl:ml-8 xl:w-52">
-              NVIDIA GeForce RTX 4090
-            </p>
-            <div className="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="h-6 w-6 text-[#76b900]"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                />
-              </svg>
-              <p className="text-md">Cooling System: Fan</p>
-            </div>
-            <div className="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="h-6 w-6 text-[#76b900]"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                />
-              </svg>
-              <p>Boost Clock Speed: 2.52 GHz</p>
-            </div>
-            <div className="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="h-6 w-6 text-[#76b900]"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                />
-              </svg>
-              <p>GPU Memory Size: 24 GB</p>
-            </div>
-            <p className="mt-4 text-lg font-bold text-white">
-              $1,599.<sup>99</sup>
-            </p>
-            <button className="pointer-events-none my-4 w-fit rounded-sm bg-[#1a1a1a] p-3 text-xl text-white transition-all hover:bg-[#84c01a]">
-              Out of Stock
-            </button>
-          </div>
-        </div>
-
-        <div className="col-span-4 flex h-fit flex-col p-2 transition-all duration-1000 sm:items-center md:col-span-2 xl:hover:ring-1 xl:hover:ring-[#666]">
-          <p className="ml-2 text-xl tracking-tight text-white">Featured</p>
-          <img
-            className="w-80 bg-cover md:h-52"
-            src="https://assets.nvidia.partners/images/png/nvidia-geforce-rtx-3080.png"
-            alt=""
-          />
-
-          <div className="mx-auto flex w-11/12 flex-col sm:w-2/3 sm:items-center">
-            <p className="text-lg text-white lg:text-xl xl:ml-8 xl:w-52">
-              NVIDIA GeForce RTX 3080
-            </p>
-            <div className="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="h-6 w-6 text-[#76b900]"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                />
-              </svg>
-              <p className="text-md">Cooling System: Fan</p>
-            </div>
-            <div className="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="h-6 w-6 text-[#76b900]"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                />
-              </svg>
-              <p>Boost Clock Speed: 1.71 GHz</p>
-            </div>
-            <div className="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="h-6 w-6 text-[#76b900]"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                />
-              </svg>
-              <p>GPU Memory Size: 10 GB</p>
-            </div>
-            <p className="mt-4 text-lg font-bold text-white">
-              $699.<sup>99</sup>
-            </p>
-            <button className="pointer-events-none my-4 w-fit rounded-sm bg-[#1a1a1a] p-3 text-xl text-white transition-all hover:bg-[#84c01a]">
-              Out of Stock
-            </button>
-          </div>
-        </div>
+        ))}
       </main>
     </>
   );
