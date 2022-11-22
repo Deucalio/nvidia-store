@@ -103,7 +103,7 @@ const Nav = () => {
             </p>
           </div>
           <div className="py-6 pb-16  flex flex-col items-center ">
-            <p className="text-right text-3xl self-end md:px-16 px-32">
+            <p className="text-right text-3xl self-end md:px-16 sm:px-32">
               $11,999.<sup>99</sup>
             </p>
             <button className="rounded-sm bg-[#76b900] w-9/12 mt-2 mx-auto flex flex-wrap justify-center py-2 items-center gap-3">
@@ -133,7 +133,7 @@ const Nav = () => {
       {overlayActive && (
         <div
           onClick={toggleOverlay}
-          className="absolute top-0 bottom-0 left-0 right-0"
+          className="absolute top-0 bottom-0 left-0 right-0 -z-10 md:z-0"
         ></div>
       )}
     </>

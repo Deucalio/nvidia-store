@@ -1,6 +1,90 @@
 import React from "react";
 import Nav from "./Nav";
 
+const PRODUCTS = [
+  {
+    imgLink: "",
+    name: "",
+    description: { para1: "", para2: "", para3: "", para4: "", para5: "" },
+    price: "",
+    button: "",
+  },
+];
+
+const Product = () => {
+  <div className="col-span-4 flex h-fit flex-col p-2 transition-all duration-1000 sm:items-center md:col-span-2 xl:hover:ring-1 xl:hover:ring-[#666]">
+    <p className="ml-2 text-xl tracking-tight text-white">Featured</p>
+    <img
+      className="w-80 bg-cover md:h-52"
+      src="https://assets.nvidia.partners/images/png/GeForce-RTX4080-Back.png"
+      alt=""
+    />
+
+    <div className="mx-auto flex w-11/12 flex-col sm:w-2/3 sm:items-center">
+      <p className="text-lg text-white lg:text-xl xl:ml-8 xl:w-52">
+        NVIDIA GeForce RTX 4080
+      </p>
+      <div className="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="1.5"
+          stroke="currentColor"
+          className="h-6 w-6 text-[#76b900]"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M8.25 4.5l7.5 7.5-7.5 7.5"
+          />
+        </svg>
+        <p className="text-md">Cooling System: Fan</p>
+      </div>
+      <div className="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="1.5"
+          stroke="currentColor"
+          className="h-6 w-6 text-[#76b900]"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M8.25 4.5l7.5 7.5-7.5 7.5"
+          />
+        </svg>
+        <p>Boost Clock Speed: 2.51 GHz</p>
+      </div>
+      <div className="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="1.5"
+          stroke="currentColor"
+          className="h-6 w-6 text-[#76b900]"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M8.25 4.5l7.5 7.5-7.5 7.5"
+          />
+        </svg>
+        <p>GPU Memory Size: 16 GB</p>
+      </div>
+      <p className="mt-4 text-lg font-bold text-white">
+        $1,199.<sup>99</sup>
+      </p>
+      <button className="my-4 w-fit rounded-sm bg-[#76b900] p-3 text-xl text-white transition-all duration-700 hover:bg-[#84c01a]">
+        Add to Cart
+      </button>
+    </div>
+  </div>;
+};
+
 const Products = () => {
   return (
     <>
@@ -23,8 +107,7 @@ const Products = () => {
                 className=" cursor-pointer ml-2"
                 htmlFor="filter_category_1"
               >
-                {" "}
-                htmlFraphics Cards
+                Graphics Cards
               </label>
             </li>
             <li className="w-fit flex flex-wrap hover:text-slate-100 cursor-pointer">
@@ -39,8 +122,7 @@ const Products = () => {
                 className=" cursor-pointer ml-2"
                 htmlFor="filter_category_2"
               >
-                {" "}
-                htmlFaming Laptops
+                Gaming Laptops
               </label>
             </li>
             <li className="w-fit flex flex-wrap hover:text-slate-100 cursor-pointer">
@@ -55,8 +137,7 @@ const Products = () => {
                 className=" cursor-pointer ml-2"
                 htmlFor="filter_category_3"
               >
-                {" "}
-                htmlFaming Mice
+                Gaming Mice
               </label>
             </li>
           </ul>
@@ -188,78 +269,6 @@ const Products = () => {
                 Add to Cart
               </button>
             </div>
-          </div>
-        </div>
-
-        <div className="col-span-4 flex h-fit flex-col p-2 transition-all duration-1000 sm:items-center md:col-span-2 xl:hover:ring-1 xl:hover:ring-[#666]">
-          <p className="ml-2 text-xl tracking-tight text-white">Featured</p>
-          <img
-            className="w-80 bg-cover md:h-52"
-            src="https://assets.nvidia.partners/images/png/GeForce-RTX4080-Back.png"
-            alt=""
-          />
-
-          <div className="mx-auto flex w-11/12 flex-col sm:w-2/3 sm:items-center">
-            <p className="text-lg text-white lg:text-xl xl:ml-8 xl:w-52">
-              NVIDIA GeForce RTX 4080
-            </p>
-            <div className="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="h-6 w-6 text-[#76b900]"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                />
-              </svg>
-              <p className="text-md">Cooling System: Fan</p>
-            </div>
-            <div className="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="h-6 w-6 text-[#76b900]"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                />
-              </svg>
-              <p>Boost Clock Speed: 2.51 GHz</p>
-            </div>
-            <div className="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="h-6 w-6 text-[#76b900]"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                />
-              </svg>
-              <p>GPU Memory Size: 16 GB</p>
-            </div>
-            <p className="mt-4 text-lg font-bold text-white">
-              $1,199.<sup>99</sup>
-            </p>
-            <button className="my-4 w-fit rounded-sm bg-[#76b900] p-3 text-xl text-white transition-all duration-700 hover:bg-[#84c01a]">
-              Add to Cart
-            </button>
           </div>
         </div>
 
