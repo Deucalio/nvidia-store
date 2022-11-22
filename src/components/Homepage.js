@@ -2,10 +2,10 @@ import React from "react";
 import Main from "./Main";
 import Nav from "./Nav";
 
-const Homepage = ({cartItems}) => {
+const Homepage = ({removeCartItem,cartItems}) => {
   return (
     <>
-      <Nav cartItems={cartItems} />
+      <Nav removeCartItem={removeCartItem} cartItems={cartItems} />
       <Main />
     </>
   );

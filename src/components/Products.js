@@ -2,7 +2,14 @@ import React, { useEffect } from "react";
 import Nav from "./Nav";
 import { useState } from "react";
 
-const Product = ({ imgLink, name, description, price, button, addCartItem }) => {
+const Product = ({
+  imgLink,
+  name,
+  description,
+  price,
+  button,
+  addCartItem,
+}) => {
   return (
     <div className="col-span-4 flex h-fit flex-col p-2 transition-all duration-1000 sm:items-center md:col-span-2 xl:hover:ring-1 xl:hover:ring-[#666]">
       <p className="ml-2 text-xl tracking-tight text-white">Featured</p>
@@ -79,12 +86,14 @@ const Product = ({ imgLink, name, description, price, button, addCartItem }) => 
   );
 };
 
-const Products = ({ cartItems, addCartItem, PRODUCTS }) => {
-
-
+const Products = ({ removeCartItem, cartItems, addCartItem, PRODUCTS }) => {
   return (
     <>
-      <Nav cartItems={cartItems} addCartItem={addCartItem} />
+      <Nav
+        removeCartItem={removeCartItem}
+        cartItems={cartItems}
+        addCartItem={addCartItem}
+      />
       <main className="grid h-fit grid-cols-4 gap-7 border-sky-400 p-2 md:mx-auto md:w-10/12 lg:w-8/12 xl:w-11/12 xl:grid-cols-8">
         <aside className="col-span-2 row-span-3 mt-28 hidden border-r-[1px] border-r-[#666] xl:block">
           <p className="w-56 -translate-x-3 border-b-2 border-[#666] xl:text-xl 2xl:text-2xl text-slate-100">
@@ -261,7 +270,10 @@ const Products = ({ cartItems, addCartItem, PRODUCTS }) => {
               <p className="mt-4 text-lg font-bold text-white xl:ml-auto xl:mr-16 xl:-mt-48">
                 $1,099.<sup>99</sup>
               </p>
-              <button onClick={addCartItem} className="my-4 w-fit rounded-sm bg-[#76b900] p-3 text-xl text-white transition-all hover:bg-[#84c01a] xl:ml-auto xl:mr-16 xl:translate-y-4">
+              <button
+                onClick={addCartItem}
+                className="my-4 w-fit rounded-sm bg-[#76b900] p-3 text-xl text-white transition-all hover:bg-[#84c01a] xl:ml-auto xl:mr-16 xl:translate-y-4"
+              >
                 Add to Cart
               </button>
             </div>

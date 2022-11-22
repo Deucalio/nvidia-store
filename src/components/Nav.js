@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
-const AddProductInCart = ({ name, price }) => {
+const AddProductInCart = ({ removeCartItem, quantity, name, price }) => {
   return (
     <div className="grid h-fit grid-cols-4 gap-y-6 border-b-2 border-[#666]/25 sm:px-6">
       <div className="mt-3 flex flex-wrap gap-2">
@@ -13,7 +13,7 @@ const AddProductInCart = ({ name, price }) => {
         >
           <path d="M24 22h-24l12-20z" />
         </svg>
-        <p className="-mt-1 text-xl">1</p>
+        <p className="-mt-1 text-xl">{quantity}</p>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 rotate-90 cursor-pointer opacity-75"
@@ -27,7 +27,12 @@ const AddProductInCart = ({ name, price }) => {
         <p className="relative text-xl  tracking-tighter text-black opacity-90">
           {name}
         </p>
-        <p className="cursor-pointer text-lg text-[#76b900]">Remove</p>
+        <p
+          onClick={removeCartItem}
+          className="cursor-pointer text-lg text-[#76b900]"
+        >
+          Remove
+        </p>
       </div>
 
       <p className="col-start-4 -ml-8 text-2xl text-black">
@@ -37,7 +42,7 @@ const AddProductInCart = ({ name, price }) => {
   );
 };
 
-const Nav = ({ cartItems }) => {
+const Nav = ({ removeCartItem, cartItems }) => {
   const [overlayActive, setOverlayActive] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
 
@@ -74,8 +79,11 @@ const Nav = ({ cartItems }) => {
             </li>
           </NavLink>
           <li onClick={toggleOverlay} className="mt-2 flex flex-wrap relative">
-            <button id="cart"
-              dataNum={String(cartProducts.length)}
+            <button
+              id="cart"
+              datanum={String(cartProducts.reduce(
+                (acc, currentVal) => acc + currentVal.quantity,
+                0))}
               className={`h-w-7 w-7 bg-transparent text-slate-200 before:absolute before:-top-4 before:z-10 before:-ml-1 before:text-lg before:text-gray-50 after:absolute after:-top-3 after:left-2 after:h-5 after:w-6 after:rounded-full after:bg-[#76b900] after:text-transparent after:content-['box']`}
             >
               <svg
@@ -116,7 +124,12 @@ const Nav = ({ cartItems }) => {
         <div className="flex h-96 flex-col gap-5 border-amber-600 caret-slate-700 sm:overflow-y-auto">
           {cartProducts.length !== 0
             ? cartProducts.map((item) => (
-                <AddProductInCart name={item.name} price={item.price} />
+                <AddProductInCart
+                  removeCartItem={removeCartItem}
+                  name={item.name}
+                  price={item.price}
+                  quantity = {item.quantity}
+                />
               ))
             : ""}
 
