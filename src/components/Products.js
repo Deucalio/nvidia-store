@@ -89,7 +89,7 @@ const Product = ({
           </div>
         )}
 
-{description.para5 && (
+        {description.para5 && (
           <div className="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -135,8 +135,6 @@ const Products = ({
   addCartItem,
   PRODUCTS,
 }) => {
-  console.log("span", );
-
   return (
     <>
       <Nav
@@ -147,7 +145,12 @@ const Products = ({
         addCartItem={addCartItem}
       />
       <main className="grid h-fit grid-cols-4 gap-7 border-sky-400 p-2 md:mx-auto md:w-10/12 lg:w-8/12 xl:w-11/12 xl:grid-cols-8">
-        <aside style={{gridRow: `span ${String(Math.ceil(PRODUCTS.length/3) + 2)} / span ${String(Math.ceil(PRODUCTS.length/3) + 2)}` }}
+        <aside
+          style={{
+            gridRow: `span ${String(
+              Math.ceil(PRODUCTS.length / 3) + 2
+            )} / span ${String(Math.ceil(PRODUCTS.length / 3) + 2)}`,
+          }}
           className={`col-span-2
           )} mt-28 hidden border-r-[1px] border-r-[#666] xl:block`}
         >

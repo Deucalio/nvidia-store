@@ -6,22 +6,11 @@ import { useState, useEffect } from "react";
 const App = ({ PRODUCTS }) => {
   const [cartItems, setCartItems] = useState([]);
 
-  useEffect(() => {
-    console.log("cartitems", cartItems);
-  }, [cartItems]);
-
-  // const getPrice = (item) => {
-  //   // special case for featured item
-  //   return
-  //   // return item.slice(-2).textContent;
-  // };
-
   const addCartItem = (item) => {
     const itemContainer = item.target.parentElement.childNodes;
 
     const name = itemContainer[0].textContent;
     const price = [...itemContainer].slice(-2)[0].textContent;
-    console.log("Price", price);
 
     // if item is already in cart, increase its quantity
     const duplicateNameIndex = cartItems.findIndex(
@@ -73,7 +62,6 @@ const App = ({ PRODUCTS }) => {
     const name =
       item.target.parentNode.parentNode.parentElement.children[1].children[0]
         .textContent;
-    console.log("name", name);
 
     let nextProducts = cartItems.map((product, index) => {
       if (product.name === name) {

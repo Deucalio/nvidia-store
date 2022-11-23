@@ -168,6 +168,7 @@ const Nav = ({
           {cartProducts.length !== 0
             ? cartProducts.map((item) => (
                 <AddProductInCart
+                key={item.name}
                   decreaseQuantity={decreaseQuantity}
                   increaseQuantity={increaseQuantity}
                   removeCartItem={removeCartItem}
