@@ -3,12 +3,17 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
 const AddProductInCart = ({ removeCartItem, quantity, name, price }) => {
+
+  const formatPrice = (stringN) => {
+    return stringN.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  }
+
   const calculatePrice = (price, quantity) => {
     const num = (
       Number(price.substr(1).split(",").join("")) * Number(quantity)
     ).toFixed(2);
     return (
-      "$" + num[0] + "," + num.split(".")[0].substr(1) + "." + num.split(".")[1]
+      "$" + formatPrice(num)
     );
   };
   const priceTimesQuantity = calculatePrice(price,quantity);
@@ -147,8 +152,9 @@ const Nav = ({ removeCartItem, cartItems }) => {
               ))
             : ""}
 
-          <div className={`py-6 pb-16  flex flex-col items-center  `}>
+          <div className={`py-6 pb-16  flex flex-col items-center ${cartProducts.length !== 0 ? "" : "hidden"}`}>
             <p className="text-right text-3xl self-end md:px-16 sm:px-32">
+              {}
               $11,999.<sup>99</sup>
             </p>
             <button className="rounded-sm bg-[#76b900] w-9/12 mt-2 mx-auto flex flex-wrap justify-center py-2 items-center gap-3">
