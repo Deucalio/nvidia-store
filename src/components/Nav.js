@@ -3,21 +3,6 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
 const AddProductInCart = ({ removeCartItem, quantity, name, price }) => {
-
-  const formatPrice = (stringN) => {
-    return stringN.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-  }
-
-  const calculatePrice = (price, quantity) => {
-    const num = (
-      Number(price.substr(1).split(",").join("")) * Number(quantity)
-    ).toFixed(2);
-    return (
-      "$" + formatPrice(num)
-    );
-  };
-  const priceTimesQuantity = calculatePrice(price,quantity);
-
   return (
     <div className="grid h-fit grid-cols-4 gap-y-6 border-b-2 border-[#666]/25 sm:px-6">
       <div className="mt-3 flex flex-wrap gap-2">
@@ -51,8 +36,7 @@ const AddProductInCart = ({ removeCartItem, quantity, name, price }) => {
       </div>
 
       <p className="col-start-4 -ml-8 text-2xl text-black">
-        {priceTimesQuantity.split(".")[0]}{" "}
-        <sup>{priceTimesQuantity.split(".")[1]}</sup>
+        {price.split(".")[0]} <sup>{price.split(".")[1]}</sup>
       </p>
     </div>
   );
@@ -61,6 +45,38 @@ const AddProductInCart = ({ removeCartItem, quantity, name, price }) => {
 const Nav = ({ removeCartItem, cartItems }) => {
   const [overlayActive, setOverlayActive] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
+
+  const formatPrice = (stringN) => {
+    return stringN.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
+  const calculatePrice = (price, quantity) => {
+    const num = (
+      Number(price.substr(1).split(",").join("")) * Number(quantity)
+    ).toFixed(2);
+    return "$" + formatPrice(num);
+  };
+
+  const totalAmount = () => {
+    return formatPrice(
+      String(
+        cartItems
+          .reduce(
+            (accr, item) =>
+              accr +
+              Number(
+                calculatePrice(item.price, item.quantity)
+                  .substr(1)
+                  .split(",")
+                  .join("")
+              ),
+            0
+          )
+          .toFixed(2)
+      )
+    );
+  };
+  console.log("run", totalAmount());
 
   useEffect(() => {
     cartItems.length !== 0 ? setCartProducts(cartItems) : setCartProducts([]);
@@ -146,16 +162,20 @@ const Nav = ({ removeCartItem, cartItems }) => {
                 <AddProductInCart
                   removeCartItem={removeCartItem}
                   name={item.name}
-                  price={item.price}
+                  price={calculatePrice(item.price, item.quantity)}
                   quantity={item.quantity}
                 />
               ))
             : ""}
 
-          <div className={`py-6 pb-16  flex flex-col items-center ${cartProducts.length !== 0 ? "" : "hidden"}`}>
+          <div
+            className={`py-6 pb-16  flex flex-col items-center ${
+              cartProducts.length !== 0 ? "" : "hidden"
+            }`}
+          >
             <p className="text-right text-3xl self-end md:px-16 sm:px-32">
-              {}
-              $11,999.<sup>99</sup>
+              ${String(totalAmount().split(".")[0])}.
+              <sup>{String(totalAmount().split(".")[1])}</sup>
             </p>
             <button className="rounded-sm bg-[#76b900] w-9/12 mt-2 mx-auto flex flex-wrap justify-center py-2 items-center gap-3">
               <svg
