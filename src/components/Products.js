@@ -1,6 +1,4 @@
-import React, { useEffect } from "react";
 import Nav from "./Nav";
-import { useState } from "react";
 
 const Product = ({
   imgLink,
@@ -330,7 +328,7 @@ const Products = ({
               </p>
               <button
                 onClick={addCartItem}
-                className="my-4 w-fit rounded-sm bg-[#76b900] p-3 text-xl text-white transition-all hover:bg-[#84c01a] xl:ml-auto xl:mr-16 xl:translate-y-4"
+                className="my-4 w-fit rounded-sm bg-[#76b900] p-3 text-xl text-white transition-all hover:bg-[#84c01a] duration-500 xl:ml-auto xl:mr-16 xl:translate-y-4"
               >
                 Add to Cart
               </button>

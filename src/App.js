@@ -9,6 +9,24 @@ const App = ({ PRODUCTS }) => {
   const addCartItem = (item) => {
     const itemContainer = item.target.parentElement.childNodes;
 
+    
+    const button = item.target; //add to cart button
+    button.textContent = "Added to Cart";
+    button.classList.add("bg-[#3b5d00]");
+    button.classList.add("hover:bg-[#3b5d00]");
+    button.classList.add("text-gray-300");
+    button.classList.add("font-bold");
+    button.classList.add("pointer-events-none");
+
+    setTimeout(() => {
+      button.textContent = "Add to Cart";
+      button.classList.remove("bg-[#3b5d00]");
+      button.classList.remove("hover:bg-[#3b5d00]");
+      button.classList.remove("text-gray-300");
+      button.classList.remove("font-bold");
+      button.classList.remove("pointer-events-none");
+    }, 2500);
+
     const name = itemContainer[0].textContent;
     const price = [...itemContainer].slice(-2)[0].textContent;
 
