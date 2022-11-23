@@ -53,10 +53,10 @@ const App = ({ PRODUCTS }) => {
 
   const removeCartItem = (item) => {
     const name = String(item.target.parentElement.childNodes[0].textContent);
-    console.log(name);
+    console.log("name",name);
 
     const filteredItems = cartItems.filter((item) => item.name !== name);
-    console.log("filter", filteredItems);
+    setCartItems(filteredItems)
   };
 
   const increaseQuantity = () => {};

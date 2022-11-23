@@ -76,7 +76,6 @@ const Nav = ({ removeCartItem, cartItems }) => {
       )
     );
   };
-  console.log("run", totalAmount());
 
   useEffect(() => {
     cartItems.length !== 0 ? setCartProducts(cartItems) : setCartProducts([]);
