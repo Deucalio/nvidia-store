@@ -86,10 +86,19 @@ const Product = ({
   );
 };
 
-const Products = ({ removeCartItem, cartItems, addCartItem, PRODUCTS }) => {
+const Products = ({
+  increaseQuantity,
+  decreaseQuantity,
+  removeCartItem,
+  cartItems,
+  addCartItem,
+  PRODUCTS,
+}) => {
   return (
     <>
       <Nav
+        increaseQuantity={increaseQuantity}
+        decreaseQuantity={decreaseQuantity}
         removeCartItem={removeCartItem}
         cartItems={cartItems}
         addCartItem={addCartItem}

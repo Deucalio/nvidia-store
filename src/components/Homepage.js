@@ -2,10 +2,10 @@ import React from "react";
 import Main from "./Main";
 import Nav from "./Nav";
 
-const Homepage = ({removeCartItem,cartItems}) => {
+const Homepage = ({increaseQuantity,decreaseQuantity,removeCartItem,cartItems}) => {
   return (
     <>
-      <Nav removeCartItem={removeCartItem} cartItems={cartItems} />
+      <Nav increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeCartItem={removeCartItem} cartItems={cartItems} />
       <Main />
     </>
   );

@@ -2,11 +2,14 @@ import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
-const AddProductInCart = ({ removeCartItem, quantity, name, price }) => {
+const AddProductInCart = ({ increaseQuantity,decreaseQuantity, removeCartItem, quantity, name, price }) => {
+
+  // increase quantity here instead of passing function as props
+  
   return (
     <div className="grid h-fit grid-cols-4 gap-y-6 border-b-2 border-[#666]/25 sm:px-6">
       <div className="mt-3 flex flex-wrap gap-2">
-        <svg
+        <svg onClick={decreaseQuantity}
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 -rotate-90 cursor-pointer opacity-75"
           viewBox="0 0 24 24"
@@ -14,7 +17,7 @@ const AddProductInCart = ({ removeCartItem, quantity, name, price }) => {
           <path d="M24 22h-24l12-20z" />
         </svg>
         <p className="-mt-1 text-xl">{quantity}</p>
-        <svg
+        <svg onClick={increaseQuantity}
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 rotate-90 cursor-pointer opacity-75"
           viewBox="0 0 24 24"
@@ -42,7 +45,12 @@ const AddProductInCart = ({ removeCartItem, quantity, name, price }) => {
   );
 };
 
-const Nav = ({ removeCartItem, cartItems }) => {
+const Nav = ({
+  increaseQuantity,
+  decreaseQuantity,
+  removeCartItem,
+  cartItems,
+}) => {
   const [overlayActive, setOverlayActive] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
 
@@ -159,6 +167,8 @@ const Nav = ({ removeCartItem, cartItems }) => {
           {cartProducts.length !== 0
             ? cartProducts.map((item) => (
                 <AddProductInCart
+                  decreaseQuantity={decreaseQuantity}
+                  increaseQuantity={increaseQuantity}
                   removeCartItem={removeCartItem}
                   name={item.name}
                   price={calculatePrice(item.price, item.quantity)}

@@ -7,10 +7,8 @@ const App = ({ PRODUCTS }) => {
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
-    console.log(cartItems);
+    console.log("cartitems", cartItems);
   }, [cartItems]);
-
-
 
   const getPrice = (item) => {
     // special case for featured item
@@ -53,14 +51,47 @@ const App = ({ PRODUCTS }) => {
 
   const removeCartItem = (item) => {
     const name = String(item.target.parentElement.childNodes[0].textContent);
-    console.log("name",name);
 
     const filteredItems = cartItems.filter((item) => item.name !== name);
-    setCartItems(filteredItems)
+    setCartItems(filteredItems);
   };
 
-  const increaseQuantity = () => {};
-  const decreaseQuantity = () => {};
+  const increaseQuantity = (item) => {
+    const name =
+      item.target.parentNode.parentNode.parentElement.children[1].children[0]
+        .textContent;
+
+    setCartItems(
+      cartItems.map((product, index) => {
+        if (product.name === name) {
+          return { name, price: product.price, quantity: product.quantity + 1 };
+        } else {
+          return product;
+        }
+      })
+    );
+  };
+  const decreaseQuantity = (item) => {
+    const name =
+      item.target.parentNode.parentNode.parentElement.children[1].children[0]
+        .textContent;
+    console.log("name", name);
+
+    let nextProducts = cartItems.map((product, index) => {
+      if (product.name === name) {
+        return {
+          name,
+          price: product.price,
+          quantity: product.quantity - 1,
+        };
+      } else {
+        return product;
+      }
+    });
+    nextProducts = nextProducts.filter((p) => p.quantity > 0);
+
+    setCartItems(nextProducts);
+  };
 
   return (
     <>
@@ -70,6 +101,8 @@ const App = ({ PRODUCTS }) => {
             path="/"
             element={
               <Homepage
+                decreaseQuantity={decreaseQuantity}
+                increaseQuantity={increaseQuantity}
                 removeCartItem={removeCartItem}
                 cartItems={cartItems}
                 addCartItem={addCartItem}
@@ -80,6 +113,8 @@ const App = ({ PRODUCTS }) => {
             path="/buy"
             element={
               <Products
+                decreaseQuantity={decreaseQuantity}
+                increaseQuantity={increaseQuantity}
                 removeCartItem={removeCartItem}
                 cartItems={cartItems}
                 addCartItem={addCartItem}
