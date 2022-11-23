@@ -15,7 +15,10 @@
   #cart::before{
     content: attr(datanum)
   }
+  aside{
+    grid-row: span attr(datarownum) / span attr(datarownum);
+  }
 }
 
 /* sidebar grid row: span 
-2 + Math.ceil((products.length / 3)) / Math.ceil(products.length / 3)  */
+  */

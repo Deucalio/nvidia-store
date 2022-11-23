@@ -10,20 +10,18 @@ const App = ({ PRODUCTS }) => {
     console.log("cartitems", cartItems);
   }, [cartItems]);
 
-  const getPrice = (item) => {
-    // special case for featured item
-    if (item[0].textContent.includes("Ti")) {
-      return item[5].textContent;
-    } else {
-      return item[4].textContent;
-    }
-  };
+  // const getPrice = (item) => {
+  //   // special case for featured item
+  //   return
+  //   // return item.slice(-2).textContent;
+  // };
 
   const addCartItem = (item) => {
     const itemContainer = item.target.parentElement.childNodes;
 
     const name = itemContainer[0].textContent;
-    const price = getPrice(itemContainer);
+    const price = [...itemContainer].slice(-2)[0].textContent;
+    console.log("Price", price);
 
     // if item is already in cart, increase its quantity
     const duplicateNameIndex = cartItems.findIndex(

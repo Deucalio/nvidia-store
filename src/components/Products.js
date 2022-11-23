@@ -13,7 +13,7 @@ const Product = ({
   return (
     <div className="col-span-4 flex h-fit flex-col p-2 transition-all duration-1000 sm:items-center md:col-span-2 xl:hover:ring-1 xl:hover:ring-[#666]">
       <p className="ml-2 text-xl tracking-tight text-white">Featured</p>
-      <img className="w-80 bg-cover md:h-52" src={imgLink} alt="" />
+      <img className="w-80 bg-cover md:h-52 mb-12 mt-6" src={imgLink} alt="" />
 
       <div className="mx-auto flex w-11/12 flex-col sm:w-2/3 sm:items-center">
         <p className="text-lg text-white lg:text-xl xl:ml-8 xl:w-52">{name}</p>
@@ -68,6 +68,47 @@ const Product = ({
           </svg>
           <p>{description.para3}</p>
         </div>
+
+        {description.para4 && (
+          <div className="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="h-6 w-6 text-[#76b900]"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M8.25 4.5l7.5 7.5-7.5 7.5"
+              />
+            </svg>
+            <p className="text-md">{description.para4}</p>
+          </div>
+        )}
+
+{description.para5 && (
+          <div className="mt-4 ml-4 flex flex-wrap items-center gap-2 text-white sm:ml-20 sm:w-64">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="h-6 w-6 text-[#76b900]"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M8.25 4.5l7.5 7.5-7.5 7.5"
+              />
+            </svg>
+            <p className="text-md">{description.para5}</p>
+          </div>
+        )}
+
         <p className="mt-4 text-lg font-bold text-white">
           {price.split(".")[0]}.<sup>{price.split(".")[1]}</sup>
         </p>
@@ -94,6 +135,8 @@ const Products = ({
   addCartItem,
   PRODUCTS,
 }) => {
+  console.log("span", );
+
   return (
     <>
       <Nav
@@ -104,7 +147,10 @@ const Products = ({
         addCartItem={addCartItem}
       />
       <main className="grid h-fit grid-cols-4 gap-7 border-sky-400 p-2 md:mx-auto md:w-10/12 lg:w-8/12 xl:w-11/12 xl:grid-cols-8">
-        <aside className="col-span-2 row-span-3 mt-28 hidden border-r-[1px] border-r-[#666] xl:block">
+        <aside style={{gridRow: `span ${String(Math.ceil(PRODUCTS.length/3) + 2)} / span ${String(Math.ceil(PRODUCTS.length/3) + 2)}` }}
+          className={`col-span-2
+          )} mt-28 hidden border-r-[1px] border-r-[#666] xl:block`}
+        >
           <p className="w-56 -translate-x-3 border-b-2 border-[#666] xl:text-xl 2xl:text-2xl text-slate-100">
             Product Category
           </p>

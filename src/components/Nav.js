@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const AddProductInCart = ({ increaseQuantity,decreaseQuantity, removeCartItem, quantity, name, price }) => {
 
-  // increase quantity here instead of passing function as props
+  
   
   return (
     <div className="grid h-fit grid-cols-4 gap-y-6 border-b-2 border-[#666]/25 sm:px-6">
@@ -87,6 +87,7 @@ const Nav = ({
 
   useEffect(() => {
     cartItems.length !== 0 ? setCartProducts(cartItems) : setCartProducts([]);
+  
   }, [cartItems]);
 
   if (overlayActive) {
