@@ -1,5 +1,6 @@
 import Nav from "./Nav";
 import { useState, useEffect } from "react";
+import { Result } from "postcss";
 
 const Product = ({
   imgLink,
@@ -137,6 +138,9 @@ const Products = ({
   const [query, setQuery] = useState("");
 
   const [queryResults, setQueryResults] = useState([]);
+  const [dropdownOptions, setDropdownOptions] = useState([]);
+
+  const [filterCategories, setFilterCategories] = useState({});
 
   //   update queryResults based on input search
   useEffect(() => {
@@ -149,6 +153,85 @@ const Products = ({
   const handleChange = (e) => {
     setQuery(e.target.value.toLowerCase());
   };
+
+  const sortByLowest = () => {
+    const sortedList = [...queryResults];
+    sortedList.sort((a, b) => {
+      if (
+        Number(a.price.substr(1).split(",").join("")) <
+        Number(b.price.substr(1).split(",").join(""))
+      )
+        return -1;
+      else if (
+        Number(a.price.substr(1).split(",").join("")) >
+        Number(b.price.substr(1).split(",").join(""))
+      )
+        return 1;
+      return 0;
+    });
+    setQueryResults(sortedList);
+  };
+
+  const sortbyHighest = () => {
+    const sortedList = [...queryResults];
+    sortedList.sort((a, b) => {
+      if (
+        Number(a.price.substr(1).split(",").join("")) <
+        Number(b.price.substr(1).split(",").join(""))
+      )
+        return 1;
+      else if (
+        Number(a.price.substr(1).split(",").join("")) >
+        Number(b.price.substr(1).split(",").join(""))
+      )
+        return -1;
+      return 0;
+    });
+    setQueryResults(sortedList);
+  };
+
+  const handleSelectChange = (e) => {
+    setDropdownOptions(e.target.value);
+  };
+
+  useEffect(() => {
+    if (dropdownOptions === "lowest-price") {
+      sortByLowest();
+    } else if (dropdownOptions === "highest-price") {
+      sortbyHighest();
+    } else {
+      setQuery("");
+      setQueryResults(PRODUCTS);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [PRODUCTS, dropdownOptions]);
+
+  const handleCategoryChange = (e) => {
+    if (e.target.checked) {
+      setFilterCategories({
+        ...filterCategories,
+        [e.target.id]: e.target.name,
+      });
+    } else {
+      let filterObj = { ...filterCategories };
+      delete filterObj[e.target.id];
+      setFilterCategories({ ...filterObj });
+    }
+  };
+
+  useEffect(() => {
+    const categories = Object.values(filterCategories);
+
+    if (categories.every((b) => b === "")) {
+      return setQueryResults(PRODUCTS);
+    } else {
+      const filterResult = [];
+      for (const catg of categories) {
+        filterResult.push(...PRODUCTS.filter((p) => p.category === catg));
+      }
+      setQueryResults(filterResult);
+    }
+  }, [filterCategories]);
 
   return (
     <>
@@ -175,10 +258,11 @@ const Products = ({
           <ul className="mt-5 flex -translate-x-3 flex-col gap-4 xl:text-lg 2xl:text-xl tracking-normal text-slate-200 text-opacity-90">
             <li className="w-fit flex flex-wrap hover:text-slate-100  cursor-pointer">
               <input
+                onChange={handleCategoryChange}
                 className="cursor-pointer w-6 h-6 border-2  border-[#666] rounded-sm bg-black  accent-[#76b900]"
                 type="checkbox"
                 id="filter_category_1"
-                name="filter1"
+                name="Graphic Card"
               />
               <label
                 className=" cursor-pointer ml-2"
@@ -189,11 +273,11 @@ const Products = ({
             </li>
             <li className="w-fit flex flex-wrap hover:text-slate-100 cursor-pointer">
               <input
+                onChange={handleCategoryChange}
                 className=" cursor-pointer w-6 h-6 border-2 border-[#666] rounded-sm bg-black active:bg-[#76b900] accent-[#76b900]"
                 type="checkbox"
                 id="filter_category_2"
-                name="filter2"
-                value="GamingLaptops"
+                name="Laptop"
               />
               <label
                 className=" cursor-pointer ml-2"
@@ -204,11 +288,11 @@ const Products = ({
             </li>
             <li className="w-fit flex flex-wrap hover:text-slate-100 cursor-pointer">
               <input
+                onChange={handleCategoryChange}
                 className=" cursor-pointer w-6 h-6 border-2 border-[#666] rounded-sm bg-black active:bg-[#76b900] accent-[#76b900]"
                 type="checkbox"
                 id="filter_category_3"
-                name="filter3"
-                value="GamingMice"
+                name="Mouse"
               />
               <label
                 className=" cursor-pointer ml-2"
@@ -255,6 +339,7 @@ const Products = ({
               Sort by:{" "}
             </label>
             <select
+              onChange={handleSelectChange}
               className="col-span-2 w-48 border-transparent bg-[#ccc] p-2 text-left text-lg tracking-wide text-[#666] focus:border-transparent focus:bg-slate-200 focus:ring-0"
               id="sort"
             >
