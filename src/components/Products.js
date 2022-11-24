@@ -1,4 +1,5 @@
 import Nav from "./Nav";
+import { useState, useEffect } from "react";
 
 const Product = ({
   imgLink,
@@ -133,6 +134,22 @@ const Products = ({
   addCartItem,
   PRODUCTS,
 }) => {
+  const [query, setQuery] = useState("");
+
+  const [queryResults, setQueryResults] = useState([]);
+
+  //   update queryResults based on input search
+  useEffect(() => {
+    const filteredResults = PRODUCTS.filter((p) =>
+      p.name.toLowerCase().includes(query)
+    );
+    setQueryResults(filteredResults);
+  }, [query, PRODUCTS]);
+
+  const handleChange = (e) => {
+    setQuery(e.target.value.toLowerCase());
+  };
+
   return (
     <>
       <Nav
@@ -162,7 +179,6 @@ const Products = ({
                 type="checkbox"
                 id="filter_category_1"
                 name="filter1"
-                value="GraphicsCards"
               />
               <label
                 className=" cursor-pointer ml-2"
@@ -210,6 +226,8 @@ const Products = ({
           </p>
           <div className="flex flex-wrap items-center border-amber-300 px-2">
             <input
+              onChange={handleChange}
+              value={query}
               maxLength="24"
               type="text"
               className="w-full bg-[#ccc] text-2xl text-[#666] placeholder:opacity-90 focus:bg-slate-100 focus:ring-0  py-3 px-4 appearance-none placeholder:text-gray-600 placeholder:text-xl focus:outline-none focus:outline-1 focus:outline-blue-600"
@@ -255,7 +273,7 @@ const Products = ({
 
         <div className="col-span-4 mx-auto flex h-full max-w-5xl flex-col gap-8  border-rose-500 border-opacity-60 p-1 md:w-full xl:col-span-6 xl:h-[27rem] xl:px-2">
           <p className="mb-6 -translate-x-3 text-2xl tracking-tighter text-white">
-            X results found
+            {`${queryResults.length} Results Found`}
           </p>
           <div className="featured flex h-fit flex-col border-2 border-[#666] bg-[#1a1a1a] p-2 md:items-center xl:h-96 xl:items-start">
             <p className="ml-2 text-xl tracking-tight text-white">Featured</p>
@@ -336,7 +354,7 @@ const Products = ({
           </div>
         </div>
 
-        {PRODUCTS.map((p) => (
+        {queryResults.map((p) => (
           <Product
             addCartItem={addCartItem}
             key={p.name}

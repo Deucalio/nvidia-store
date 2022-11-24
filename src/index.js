@@ -5,6 +5,7 @@ import "./index.css";
 
 const PRODUCTS = [
   {
+    category: "Graphic Card",
     imgLink:
       "https://assets.nvidia.partners/images/png/GeForce-RTX4080-Back.png",
     name: "NVIDIA GeForce RTX 4080",
@@ -19,6 +20,7 @@ const PRODUCTS = [
     button: "Add to Cart",
   },
   {
+    category: "Graphic Card",
     imgLink:
       "https://assets.nvidia.partners/images/png/GeForce-RTX4090-Back.png",
     name: "NVIDIA GeForce RTX 4090",
@@ -33,6 +35,7 @@ const PRODUCTS = [
     button: "Out of Stock",
   },
   {
+    category: "Graphic Card",
     imgLink:
       "https://assets.nvidia.partners/images/png/nvidia-geforce-rtx-3080.png",
     name: "NVIDIA GeForce RTX 3080",
@@ -48,6 +51,7 @@ const PRODUCTS = [
   },
 
   {
+    category: "Laptop",
     imgLink:
       "https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c08186082.png?imwidth=270&imdensity=1",
     name: "HP Victus GeForce RTX 3050 Ti, 15.6 , Intel Core i5-12500H, 8GB RAM, 512GB SSD",
@@ -63,6 +67,7 @@ const PRODUCTS = [
   },
 
   {
+    category: "Laptop",
     imgLink: "https://assets.nvidia.partners/images/png/G513QM-WS96.png",
     name: "ASUS ROG G513QM-WS96",
     description: {
@@ -77,6 +82,7 @@ const PRODUCTS = [
   },
 
   {
+    category: "Laptop",
     imgLink: "https://assets.nvidia.partners/images/png/razer-blade-14.png",
     name: "Razer Blade 14 - GeForce RTX 3070 Laptop GPU, 14,Ryzen 9, 16GB, 1TB SSD",
     description: {
@@ -91,6 +97,7 @@ const PRODUCTS = [
   },
 
   {
+    category: "Mouse",
     imgLink: "https://assets.nvidia.partners/images/png/ROG_Keris_05.png",
     name: "ASUS ROG Keris (wired only)",
     description: {
@@ -105,6 +112,7 @@ const PRODUCTS = [
   },
 
   {
+    category: "Mouse",
     imgLink: "https://assets.nvidia.partners/images/png/ROG_Gladius_III_07.png",
     name: "ASUS ROG Gladius III Wired",
     description: {
@@ -114,11 +122,12 @@ const PRODUCTS = [
       para4: "",
       para5: "",
     },
-    price: "$49.99",
+    price: "$44.99",
     button: "Add to Cart",
   },
 
   {
+    category: "Mouse",
     imgLink:
       "https://assets.nvidia.partners/images/png/Predator-Cestus_330_sku.png",
     name: "Acer Predator Cestus 330",
