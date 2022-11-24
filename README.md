@@ -5,8 +5,8 @@ This is a shopping cart made with react and tailwindCSS without backend, it does
 - Navigate between pages with a navigation bar (shown on both routes)
 - Interact with homepage/products page
 
-#### Homepage
+## Homepage
 ![](https://i.imgur.com/yWW9ncG.png)
 
-####Products Page
+## Products Page
 ![](https://i.imgur.com/WVYgnJ8.png)
