@@ -113,32 +113,16 @@ const PRODUCTS = [
 
   {
     category: "Mouse",
-    imgLink: "https://assets.nvidia.partners/images/png/ROG_Gladius_III_07.png",
-    name: "ASUS ROG Gladius III Wired",
+    imgLink: "https://assets.nvidia.partners/images/png/Straight.png",
+    name: "EVGA X17 Gaming Mouse",
     description: {
       para1: "Support Wireless: N/A",
-      para2: `FW Version: 1.00.16`,
+      para2: `FW Version: 1.68.1`,
       para3: "Support Wired: Yes",
       para4: "",
       para5: "",
     },
     price: "$44.99",
-    button: "Add to Cart",
-  },
-
-  {
-    category: "Mouse",
-    imgLink:
-      "https://assets.nvidia.partners/images/png/Predator-Cestus_330_sku.png",
-    name: "Acer Predator Cestus 330",
-    description: {
-      para1: "Support Wired: Yes",
-      para2: `Support Wireless: No`,
-      para3: "FW Version: 1.0",
-      para4: "",
-      para5: "",
-    },
-    price: "$24.99",
     button: "Add to Cart",
   },
 ];
