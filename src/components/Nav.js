@@ -7,7 +7,7 @@ const AddProductInCart = ({ increaseQuantity,decreaseQuantity, removeCartItem, q
   
   
   return (
-    <div className="grid h-fit grid-cols-4 gap-y-6 border-b-2 border-[#666]/25 sm:px-6">
+    <div className="grid h-fit grid-cols-4 gap-y-6 border-b-2 border-[#666]/25 sm:px-6 select-none">
       <div className="mt-3 flex flex-wrap gap-2">
         <svg onClick={decreaseQuantity}
           xmlns="http://www.w3.org/2000/svg"

@@ -1,6 +1,5 @@
 import Nav from "./Nav";
 import { useState, useEffect } from "react";
-import { Result } from "postcss";
 
 const Product = ({
   imgLink,
@@ -231,7 +230,7 @@ const Products = ({
       }
       setQueryResults(filterResult);
     }
-  }, [filterCategories]);
+  }, [PRODUCTS,filterCategories]);
 
   return (
     <>

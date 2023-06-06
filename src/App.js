@@ -1,7 +1,7 @@
 import Homepage from "./components/Homepage";
 import Products from "./components/Products";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const App = ({ PRODUCTS }) => {
   const [cartItems, setCartItems] = useState([]);
